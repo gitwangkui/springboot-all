@@ -1,6 +1,7 @@
 package com.redmaple.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.redmaple.common.utils.HttpClientUtil;
 
@@ -14,6 +15,7 @@ import io.swagger.annotations.ApiOperation;
  *  
  */
 @Api(value = "节假日")
+@RestController
 public class HolidayController {
 		
 	public static String baseUrl = "http://timor.tech/api/holiday";
@@ -21,6 +23,7 @@ public class HolidayController {
 	@ApiOperation(value = "获取指定日期的节假日信息")
 	@GetMapping("/getHolidayInfo")
 	public String getHolidayInfo() {
+		System.out.println("\n===== getHolidayInfo");
 		String url = baseUrl + "/info";
 		System.out.println("\n====完整的url：" + url);
 		String data = HttpClientUtil.doGetJson(url);

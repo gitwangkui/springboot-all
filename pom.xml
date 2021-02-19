@@ -8,7 +8,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>rem-common</module>
-		<module>rem-easypoi</module>
 	</modules>
 
 	<parent>
