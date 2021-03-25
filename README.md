@@ -1,4 +1,5 @@
-【springboot-all】常用的工具整合
+【springboot-all 常用的工具整合】
+
 1。springboot web mybatis-plus
 
 2。整合的多数据源，关系型数据库：mysql，sqlserver，oracle。按照分包来区分。
@@ -13,7 +14,9 @@
 
 7。发送邮件 TODO
 
-8。easyexcel导入导出，支持大量数据
+8。easyexcel导入导出，支持大量数据 TODO
+
+9。新增节假日工具类
 
 
 

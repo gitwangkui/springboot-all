@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>rem-common</module>
+		<module>rem-test</module>
 	</modules>
 
 	<parent>
