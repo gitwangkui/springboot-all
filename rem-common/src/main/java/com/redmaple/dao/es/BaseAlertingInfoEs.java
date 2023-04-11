@@ -18,7 +18,7 @@ public interface BaseAlertingInfoEs extends ElasticsearchRepository<BaseAlerting
 	 * @auth：uwank171 
 	 * @date: 2020年10月28日 下午3:44:15
 	 * @param id
-	 * @return           
+	 * @return  
 	 *
 	 */
 	BaseAlertingInfoEsDto queryById(String id);

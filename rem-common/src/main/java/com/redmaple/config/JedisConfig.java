@@ -1,10 +1,12 @@
 package com.redmaple.config;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
@@ -37,22 +39,27 @@ public class JedisConfig {
     
     @Value("${spring.redis.jedis.pool.max-idle}")
     private int maxIdle;
+    
+    private JedisPool jedisPool;
 
+	@SuppressWarnings("resource")
 	@Bean
-    public JedisPool getJedisPool() {
+    public Jedis getJedis() {
+		if (!ObjectUtils.isEmpty(jedisPool)) {
+			 return jedisPool.getResource();
+		}
         System.out.println("JedisPool注入开始...");
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(maxActive);
         jedisPoolConfig.setMaxIdle(maxIdle);
         jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
-        JedisPool jedisPool;
         if (StringUtils.isBlank(password)) {
         	jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout);
 		} else {
 			jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
 		}
         System.out.println("JedisPool注入成功...");
-        return jedisPool;
+        return jedisPool.getResource();
 	}
 
 }

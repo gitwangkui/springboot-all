@@ -97,7 +97,41 @@ spring:
         max-idle: 2
         ## 连接池中最小空闲连接
         min-idle: 0
-        
+  ################### email ########################  mail:#    default-encoding: UTF-8
+#    ## 服务器地址smtp.163.com
+#    host: 172.28.12.120
+#    port: 25
+#    ## 发送人邮箱账号,需要动态跟换故注释
+#    ##username: YFAIMES@yanfeng-auto.com
+#    ## 邮箱授权码，非密码
+#    #password: CMPLCLZZNEOYNMCA
+#    properties:
+#      mail:
+#        smtp:
+#          auth: false
+#          ssl:
+#            trust: 172.28.12.120
+#          EnableSSL: true
+#          starttls:
+#            enable: true
+#            required: true
+  mail:
+    default-encoding: UTF-8
+    ## 服务器地址smtp.163.com
+    host: smtp.163.com
+    port: 25
+    protocol: smtp
+    ## 发送人邮箱账号,需要动态跟换故注释
+    username: wangkui_wkgi@163.com
+    ## 邮箱授权码，非密码
+    password: EKCXFRDVJLSUUITM
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 
 
